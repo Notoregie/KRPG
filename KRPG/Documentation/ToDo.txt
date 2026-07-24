@@ -1,0 +1,6 @@
+﻿> Attak behaviour in Player and complete enemies such as player class.
+Latest I did Equipment Set.
+
+> Deeper Weapon class with damagecalculation.
+> Class Party
+> Class Game

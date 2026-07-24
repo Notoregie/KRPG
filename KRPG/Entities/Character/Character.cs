@@ -8,54 +8,26 @@ using System.Text;
 
 namespace KRPG.Entities.Character
 {
-    public abstract class Character : Entity, IAttackable, IDamageable, ICanEquip
+    /// <summary>
+    /// Represents a living entity capable of acting (such as fighting) in the game world.
+    /// </summary>
+    public abstract class Character : Entity
     {
         #region Properties & Fields
-        public override string Type => nameof(Character);
-        public int Health { get; private set; }
-        public Stats BaseStats { get; private set; }
-
-        private readonly Dictionary<EquipmentSlot, Equipment> _equipment = new();
-        public Stats ActualStats
-        {
-            get
-            {
-                Stats actualStats = BaseStats;
-                foreach (Equipment equipment in _equipment.Values)
-                {
-                    actualStats += equipment.StatsModifier;
-                }
-                return actualStats;
-            }
-        }
+        public int Health { get; protected set; }
+        public Stats BaseStats { get; protected set; }
+        public virtual Stats ActualStats => BaseStats;
         #endregion
-        public Character(string name, Stats stats) : base(name) 
+        public Character(int id, string name, Stats stats) : base(id, name) 
         {
             BaseStats = stats;
             Health = BaseStats.MaxHealth;
         }
         #region Methods
 
-        public void Attack(IDamageable target)
-        {
-            target.TakeDamage(this);
-        }
+        
 
-        public void TakeDamage(Character attacker)
-        {
-            int calculatedDamage = DamageCalculator.CalculateDamage(attacker.ActualStats, ActualStats);
-            Health = Math.Max(Health - calculatedDamage, 0);
-        }
 
-        public void Equip(Equipment equipment)
-        {
-            _equipment[equipment.Slot] = equipment; 
-        }
-
-        public void Unequip(EquipmentSlot equipmentSlot)
-        {
-            _equipment.Remove(equipmentSlot);
-        }
         #endregion
     }
 }

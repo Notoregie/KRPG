@@ -7,12 +7,11 @@ namespace KRPG.Entities.Items.Equipment
 {
     public abstract class Equipment : Item
     {
-        public EquipmentSlot Slot { get; }
+        public abstract EquipmentSlot Slot { get; }
         public StatsModifier StatsModifier { get; }
 
-        public Equipment(string name, EquipmentSlot slot, StatsModifier statsModifier) : base(name)
+        public Equipment(int id, string name, StatsModifier statsModifier) : base(id, name)
         {
-            Slot = slot;
             StatsModifier = statsModifier;
         }
     }

@@ -8,8 +8,9 @@ namespace KRPG.Entities.Items
     {
         public abstract int StackLimit { get; }
 
-        public Item(string name) : base(name)
+        public Item(int id, string name) : base(id, name)
         {
+
         }
     }
 }

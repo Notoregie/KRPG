@@ -7,12 +7,12 @@ namespace KRPG.Entities
 {
     public abstract class Entity
     {
-        public abstract int Id { get; }
-        public abstract string Type { get; }
+        public int Id { get; init; }
         public string Name { get; private set; }
 
-        public Entity(string name)
+        public Entity(int id, string name)
         {
+            Id = id;
             Name = name;
             IDTools.RegisterID(this);
         }

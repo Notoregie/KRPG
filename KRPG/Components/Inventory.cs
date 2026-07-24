@@ -8,14 +8,18 @@ namespace KRPG.Components
     /// <summary>
     /// Inventory is the Inventory from the Player (not the class)
     /// </summary>
-    public static class Inventory
+    public class Inventory
     {
-        private readonly static Dictionary<string, ItemStack> _inventoryItems = new Dictionary<string, ItemStack>();
+        private readonly Dictionary<int, ItemStack> _inventoryItems = new Dictionary<int, ItemStack>();
 
-        public static bool CollectItem(Item item)
+        public Inventory()
+        {
+
+        }
+        public bool CollectItem(Item item)
         {
             // Item already exist in Inventory
-            if (_inventoryItems.TryGetValue(item.Name, out ItemStack? itemStack) && itemStack != null)
+            if (_inventoryItems.TryGetValue(item.Id, out ItemStack? itemStack) && itemStack != null)
             {
                 return itemStack.TryIncrease();
             }
@@ -23,24 +27,29 @@ namespace KRPG.Components
             // Item does not exist
             else
             {
-                _inventoryItems[item.Name] = new ItemStack(item);
+                _inventoryItems[item.Id] = new ItemStack(item);
                 return true;
             }
         }
 
-        public static bool RemoveItem(string itemName)
+        public bool RemoveItem(Item item)
         {
-            if (_inventoryItems.TryGetValue(itemName, out ItemStack? itemStack) && itemStack != null)
+            if (_inventoryItems.TryGetValue(item.Id, out ItemStack? itemStack) && itemStack != null)
             {
                 if (!itemStack.TryDecrease())
                     return false;
 
                 if (itemStack.IsEmpty)
-                    _inventoryItems.Remove(itemName);
+                    _inventoryItems.Remove(item.Id);
 
                 return true;
             }
             return false;
+        }
+
+        public bool ContainItem(Item item)
+        {
+            return _inventoryItems.TryGetValue(item.Id, out _);
         }
     }
 

@@ -1,0 +1,19 @@
+﻿Components:
+
+- Inventory: X
+- Stats: X
+- StatsModifier: X
+
+Systems:
+
+- SelectionMenu: X
+- TitleScreen: X
+- IDTools: X
+- Battle: O
+- BattleScreen: O
+
+Entities:
+
+Player: O
+Items: O
+Enemies: O
