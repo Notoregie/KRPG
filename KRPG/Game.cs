@@ -1,4 +1,4 @@
-﻿using KRPG.Entities.Character.Player;
+﻿using KRPG.Entities.Characters.Player;
 using KRPG.Global;
 using System;
 using System.Collections.Generic;

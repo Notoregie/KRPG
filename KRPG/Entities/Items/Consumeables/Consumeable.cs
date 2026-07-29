@@ -1,4 +1,4 @@
-﻿using KRPG.Entities.Character;
+﻿using KRPG.Entities.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace KRPG.Entities.Items.Consumeables
 
         }
 
-        public abstract void Use(Character.Character target);
+        public abstract bool CanConsume(Character target);
+        public abstract void Use(Character target);
     }
 }

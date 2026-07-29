@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KRPG.Entities.Character.Player
+namespace KRPG.Entities.Characters.Player
 {
     public class Party
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KRPG.Entities.Character.Enemies
+namespace KRPG.Entities.Characters.Enemies
 {
     public class Enemy : Character
     {

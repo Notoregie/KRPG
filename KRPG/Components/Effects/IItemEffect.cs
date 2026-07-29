@@ -1,4 +1,4 @@
-﻿using KRPG.Entities.Character;
+﻿using KRPG.Entities.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,17 @@ namespace KRPG.Components.Effects
 {
     public interface IItemEffect
     {
-        void Apply(Character target);
+        /// <summary>
+        /// Determines if the IItemEffect can be applied to his target.
+        /// </summary>
+        /// <param name="target">Character that determines whether the effect can be applied.</param>
+        /// <returns></returns>
+        bool CanApply(Character target);
+        /// <summary>
+        /// Tries to apply the IItemEffect on a target.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        bool Apply(Character target);
     }
 }

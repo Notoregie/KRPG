@@ -9,13 +9,17 @@ namespace KRPG.Global
     /// <summary>
     /// Provides constant values and settings that define game rules and behaiour
     /// </summary>
-    public static class GameConstants
+    public static partial class GameConstants
     {
-        // A
+        public const double CriticalHitMult = 2.0;
 
-        // B
+        public const int MinDamage = 1;
 
-        // C
-        public const int SmallHealingPotionValue = 20;
+        public const int MaxDamage = 9999;
+
+        public const int MaxCombatRounds = 99;
+
+
+
     }
 }

@@ -7,6 +7,7 @@ namespace KRPG.Entities.Items.Equipment
 {
     public abstract class Equipment : Item
     {
+        public override int StackLimit => 3;
         public abstract EquipmentSlot Slot { get; }
         public StatsModifier StatsModifier { get; }
 

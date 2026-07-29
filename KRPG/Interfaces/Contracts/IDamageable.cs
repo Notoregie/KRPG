@@ -1,4 +1,4 @@
-﻿using KRPG.Entities.Character;
+﻿using KRPG.Entities.Characters;
 using System;
 using System.Collections.Generic;
 using System.Text;

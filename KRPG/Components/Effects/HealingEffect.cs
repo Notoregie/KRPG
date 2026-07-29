@@ -1,4 +1,5 @@
-﻿using KRPG.Entities.Character;
+﻿using KRPG.Entities.Characters;
+using KRPG.Interfaces.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KRPG.Components.Effects
 {
-    public class HealingEffect : IItemEffect
+    public sealed class HealingEffect : ItemEffect
     {
         private readonly int _amount;
 
@@ -16,9 +17,13 @@ namespace KRPG.Components.Effects
             _amount = amount;
         }
 
-        public void Apply(Character target)
+        public override bool CanApply(Character target) => target is IHealable;
+
+        protected override bool ApplyLogic(Character target)
         {
-            target.Heal(_amount);
+            IHealable healable = (IHealable)target;
+            healable.Heal(_amount);
+            return true;
         }
     }
 }

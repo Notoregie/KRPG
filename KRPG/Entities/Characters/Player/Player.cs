@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRPG.Entities.Character.Player
+namespace KRPG.Entities.Characters.Player
 {
     /// <summary>
     /// Represents a playable Character in the game world
@@ -65,12 +65,12 @@ namespace KRPG.Entities.Character.Player
 
         public void Equip(Equipment equipment)
         {
-            _equipment[equipment.Slot] = equipment;
+            EquipmentSet.Equip(equipment);
         }
 
         public void Unequip(EquipmentSlot equipmentSlot)
         {
-            _equipment.Remove(equipmentSlot);
+            EquipmentSet.Unequip(equipmentSlot);
         }
 
         public void Heal(int amount)

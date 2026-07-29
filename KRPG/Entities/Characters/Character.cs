@@ -6,10 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRPG.Entities.Character
+namespace KRPG.Entities.Characters
 {
     /// <summary>
-    /// Represents a living entity capable of acting (such as fighting) in the game world.
+    /// Represents a living entity capable of acting in the game world.
     /// </summary>
     public abstract class Character : Entity
     {

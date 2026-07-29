@@ -4,3 +4,5 @@ Latest I did Equipment Set.
 > Deeper Weapon class with damagecalculation.
 > Class Party
 > Class Game
+> IItemEffect Problem fix X
+> ConsumeableItem rework aka fix
